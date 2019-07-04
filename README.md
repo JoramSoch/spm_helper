@@ -9,3 +9,12 @@ In this repository, I collect some useful helper functions for Statistical Param
 - `spm_exec_mult_jobs`: executes multiple jobs created using the SPM batch editor
 - `spm_gen_con_paths`: generates contrast paths to be used in second-level analyses
 - `spm_save_thr_SPM`: saves thresholded statistical parametric maps for estimated GLM
+- `spm_skull_strip`: skull-strips an anatomical image using the segmentation of SPM12
+
+Most of these functions are written such that they can be called with all input arguments, e.g.
+
+`spm_skull_strip('C:\VisRec\BIDS\sub-01\anat\sub-01_T1w.nii', 0.95)`,
+
+or just using the function name, such that input arguments are specified via the SPM GUI, i.e.
+
+`spm_skull_strip`.
