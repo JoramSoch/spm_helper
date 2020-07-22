@@ -14,10 +14,10 @@ In this repository, I collect some useful helper functions for Statistical Param
 
 Most of these functions are written such that they can be called with all input arguments, e.g.
 
-`spm_skull_strip('C:\BIDS\sub-01\anat\sub-01_T1w.nii', 0.95)`
-`[out, V] = spm_calc_vols('sum(V~=0)', {'C:\BIDS\sub-01\glms\glm-0\mask.nii'})`,
+- `spm_skull_strip('C:\BIDS\sub-01\anat\sub-01_T1w.nii', 0.95)`
+- `[out, V] = spm_calc_vols('sum(V~=0)', {'C:\BIDS\sub-01\glms\glm-0\mask.nii'})`,
 
 or just using the function name, such that input arguments are specified via the SPM GUI, i.e.
 
-`spm_skull_strip`
-`out = spm_calc_vols`.
+- `spm_skull_strip`
+- `out = spm_calc_vols`.
