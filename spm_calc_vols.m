@@ -1,6 +1,6 @@
 function [out, V] = spm_calc_vols(expr, vols)
 % _
-% Calculate Values from Volume or Volumes
+% Calculate from Volumes
 % FORMAT [out, V] = MF_analyze(expr, vols)
 % 
 %     expr - a string describing a mathematical operation on V

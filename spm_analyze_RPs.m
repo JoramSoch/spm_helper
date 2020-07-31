@@ -17,7 +17,7 @@ function [TPs, RPs] = spm_analyze_RPs(RP_file, RP_plot)
 % E-Mail: joram.soch@bccn-berlin.de
 % 
 % First edit: 19/02/2015, 06:45
-%  Last edit: 06/08/2018, 14:55
+%  Last edit: 31/07/2020, 16:21
 
 
 % Select file if required
@@ -48,8 +48,11 @@ RPs = [RPs; (RPs(2,:)-RPs(1,:))];           % rotations
 % Display realignment parameters
 %-------------------------------------------------------------------------%
 if RP_plot
-    figure('Name','Realignment Parameters','Color',[1 1 1],'Position',[50 50 1600 900]);
-    % translations
+    
+    figure;
+    
+    % Translations
+    %---------------------------------------------------------------------%
     subplot(2,1,1);
     hold on;
     plot([1:n],RP_data(:,1),'-b', 'LineWidth', 2);
@@ -62,7 +65,9 @@ if RP_plot
     xlabel('image','FontSize',16);
     ylabel('millimeters','FontSize',16);
     title('Translations','FontSize',20);
-    % rotations
+    
+    % Rotations
+    %---------------------------------------------------------------------%
     subplot(2,1,2);
     hold on;
     plot([1:n],RP_data(:,4),'-b', 'LineWidth', 2);
@@ -75,4 +80,5 @@ if RP_plot
     xlabel('image','FontSize',16);
     ylabel('degrees','FontSize',16);
     title('Rotations','FontSize',20);
+    
 end;

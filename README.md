@@ -5,10 +5,12 @@
 <img src="https://vignette.wikia.nocookie.net/disney/images/2/25/Filament.PNG" alt="Little Helper" height=250>
 
 In this repository, I collect some useful helper functions for Statistical Parametric Mapping (SPM):
-- `spm_analyze_RPs`: analyzes and plots movement parameters estimated by SPM
 - `spm_calc_vols`: performs arbitrary mathematical operations on several volumes
-- `spm_exec_mult_jobs`: executes multiple jobs created using the SPM batch editor
+- `spm_corr_vols`: correlates a set of volumes, outputs correlations and p-values
+- `spm_hist_vols`: histograms a set of volumes, outputs bin centers and voxel counts
+- `spm_analyze_RPs`: analyzes and plots movement parameters estimated by SPM
 - `spm_gen_con_paths`: generates contrast paths to be used in second-level analyses
+- `spm_exec_mult_jobs`: executes multiple jobs created using the SPM batch editor
 - `spm_save_thr_SPM`: saves thresholded statistical parametric maps for estimated GLM
 - `spm_skull_strip`: skull-strips an anatomical image using the segmentation of SPM12
 
