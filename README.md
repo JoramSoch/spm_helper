@@ -9,6 +9,7 @@ In this repository, I collect some useful helper functions for Statistical Param
 - `spm_corr_vols`: correlates a set of volumes, outputs correlations and p-values
 - `spm_hist_vols`: histograms a set of volumes, outputs bin centers and voxel counts
 - `spm_analyze_RPs`: analyzes and plots movement parameters estimated by SPM
+- `spm_plot_con_CI`: calculates and plots contrast estimates with confidence intervals
 - `spm_gen_con_paths`: generates contrast paths to be used in second-level analyses
 - `spm_exec_mult_jobs`: executes multiple jobs created using the SPM batch editor
 - `spm_save_thr_SPM`: saves thresholded statistical parametric maps for estimated GLM
