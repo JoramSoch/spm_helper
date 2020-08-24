@@ -1,15 +1,21 @@
-function [cb, CI] = spm_plot_con_CI(SPM, con, xyz, alpha)
+function [cb, CI] = spm_plot_con_CI(SPM, con, xyz, alpha, CI_plot)
 % _
 % Plot Contrast with Confidence Intervals
-% FORMAT spm_plot_con_CI(SPM, con, xyz, alpha)
-%     SPM   - a structure specifying an estimated GLM
-%     con   - an integer indexing the contrast to be used
-%     xyz   - a 1 x 3 vector of MNI coordinates [mm]
-%     alpha - the significance level, CIs are (1-alpha)
+% FORMAT [cb, CI] = spm_plot_con_CI(SPM, con, xyz, alpha, CI_plot)
 % 
-% FORMAT spm_plot_con_CI(SPM, con, xyz, alpha) computes and displays
-% contrast estimates and (1-alpha) confidence intervals of a contrast
-% indexed by con at selected coordinates xyz [1].
+%     SPM     - a structure specifying an estimated GLM
+%     con     - an integer indexing the contrast to be used
+%     xyz     - a 1 x 3 vector of MNI coordinates [mm]
+%     alpha   - the significance level, CIs are (1-alpha)
+%     CI_plot - logical indicating whether to plot CIs
+% 
+%     cb      - a 1 x q vector of contrast estimates
+%     CI      - a 1 x q vector of confidence intervals
+%               where q is the 2nd dim of the contrast matrix
+% 
+% FORMAT [cb, CI] = spm_plot_con_CI(SPM, con, xyz, alpha, CI_plot) com-
+% putes and displays contrast estimates and (1-alpha) confidence intervals
+% of a contrast indexed by con at selected coordinates xyz [1].
 % 
 % References:
 % [1] Carlin J (2010). Extracting beta, standard error and confidence
@@ -20,7 +26,7 @@ function [cb, CI] = spm_plot_con_CI(SPM, con, xyz, alpha)
 % E-Mail: joram.soch@bccn-berlin.de
 % 
 % First edit: 20/08/2020, 22:45
-%  Last edit: 23/08/2020, 23:52
+%  Last edit: 24/08/2020, 14:33
 
 
 % Change directory
@@ -65,13 +71,17 @@ CI = 2*SE*norminv(1-alpha/2, 0, 1);
 
 % Plot estimates and intervals
 %-------------------------------------------------------------------------%
-figure;
-hold on;
-bar([1:q], cb, 'b');
-errorbar([1:q], cb, CI./2, CI./2, '.k', 'LineWidth', 2, 'CapSize', 20);
-axis([(1-0.5), (q+0.5), (11/10)*min([min(cb), 0])-max(CI)/2, (11/10)*max([max(cb), 0])+max(CI)/2]);
-set(gca,'Box','On');
-set(gca,'XTick',[1:q]);
-xlabel('contrast row/column', 'FontSize', 12);
-ylabel(sprintf('contrast estimate at [%d, %d, %d]', xyz(1), xyz(2), xyz(3)), 'FontSize', 12);
-title(sprintf('Contrast estimates and %d%% confidence intervals: %s', round((1-alpha)*100), SPM.xCon(con).name), 'FontSize', 16);
+if CI_plot
+
+    figure;
+    hold on;
+    bar([1:q], cb, 'b');
+    errorbar([1:q], cb, CI./2, CI./2, '.k', 'LineWidth', 2, 'CapSize', 20);
+    axis([(1-0.5), (q+0.5), (11/10)*min([min(cb), 0])-max(CI)/2, (11/10)*max([max(cb), 0])+max(CI)/2]);
+    set(gca,'Box','On');
+    set(gca,'XTick',[1:q]);
+    xlabel('contrast row/column', 'FontSize', 12);
+    ylabel(sprintf('contrast estimate at [%d, %d, %d]', xyz(1), xyz(2), xyz(3)), 'FontSize', 12);
+    title(sprintf('Contrast estimates and %d%% confidence intervals: %s', round((1-alpha)*100), SPM.xCon(con).name), 'FontSize', 16);
+
+end;
