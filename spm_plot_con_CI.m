@@ -26,8 +26,15 @@ function [cb, CI] = spm_plot_con_CI(SPM, con, xyz, alpha, CI_plot)
 % E-Mail: joram.soch@bccn-berlin.de
 % 
 % First edit: 20/08/2020, 22:45
-%  Last edit: 24/08/2020, 14:33
+%  Last edit: 28/08/2020, 11:19
 
+
+% Set defaults
+%-------------------------------------------------------------------------%
+if isempty(con)     || nargin < 2, con     = 1;      end;
+if isempty(xyz)     || nargin < 3, xyz     =[0,0,0]; end;
+if isempty(aplha)   || nargin < 4, alpha   = 0.1;    end;
+if isempty(CI_plot) || nargin < 5, CI_plot = true;   end;
 
 % Change directory
 %-------------------------------------------------------------------------%
