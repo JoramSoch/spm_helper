@@ -33,7 +33,7 @@ function [cb, CI] = spm_plot_con_CI(SPM, con, xyz, alpha, CI_plot)
 %-------------------------------------------------------------------------%
 if isempty(con)     || nargin < 2, con     = 1;      end;
 if isempty(xyz)     || nargin < 3, xyz     =[0,0,0]; end;
-if isempty(aplha)   || nargin < 4, alpha   = 0.1;    end;
+if isempty(alpha)   || nargin < 4, alpha   = 0.1;    end;
 if isempty(CI_plot) || nargin < 5, CI_plot = true;   end;
 
 % Change directory
