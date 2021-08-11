@@ -10,10 +10,12 @@ In this repository, I collect some useful helper functions for Statistical Param
 - `spm_hist_vols`: histograms a set of volumes, outputs bin centers and voxel counts
 - `spm_analyze_RPs`: analyzes and plots movement parameters estimated by SPM
 - `spm_plot_con_CI`: calculates and plots contrast estimates with confidence intervals
+- `spm_extr_ROI_data`: extracts average values from data images using ROI masks
 - `spm_gen_con_paths`: generates contrast paths to be used in second-level analyses
 - `spm_exec_mult_jobs`: executes multiple jobs created using the SPM batch editor
 - `spm_save_thr_SPM`: saves thresholded statistical parametric maps for estimated GLM
 - `spm_skull_strip`: skull-strips an anatomical image using the segmentation of SPM12
+- `bpm_edit_SPM_cons`: edits SPM contrast maps after [BPM analysis](https://www.nitrc.org/frs/?group_id=433&release_id=1909) has been performed
 
 Most of these functions are written such that they can be called with all input arguments, e.g.
 
