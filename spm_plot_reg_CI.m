@@ -1,6 +1,6 @@
-function [x, y, xr, yr, CI] = spm_plot_cov_reg(SPM, cov, xyz, alpha, reg_plot)
+function [x, y, xr, yr, CI] = spm_plot_reg_CI(SPM, cov, xyz, alpha, reg_plot)
 % _
-% Plot Regression Line with Covariate
+% Plot Regression with Confidence Interval
 % FORMAT [x, y, xr, yr, CI] = spm_plot_cov_reg(SPM, cov, xyz, alpha, reg_plot)
 % 
 %     SPM      - a structure specifying an estimated GLM
@@ -24,14 +24,16 @@ function [x, y, xr, yr, CI] = spm_plot_cov_reg(SPM, cov, xyz, alpha, reg_plot)
 % [1] Schlegel A (2016). Linear Regression Confidence Intervals.
 %     URL: https://rstudio-pubs-static.s3.amazonaws.com/195401_
 %     20b3272a8bb04615ae7ee4c81d18ffb5.html.
-% [2] Dinno A (2014). Understanding shape and calculation of confidence
-%     bands in linear regression. URL: https://stats.stackexchange.com/a/101327.
+% [2] Alexis (2014). Understanding shape and calculation of confidence bands
+%     in linear regression. URL: https://stats.stackexchange.com/a/101327.
+% [3] Glen_b (2014). Shape of confidence interval for predicted values
+%     in linear regression. URL: https://stats.stackexchange.com/a/85565.
 % 
 % Author: Joram Soch, BCCN Berlin
 % E-Mail: joram.soch@bccn-berlin.de
 % 
 % First edit: 16/08/2021, 11:57
-%  Last edit: 16/08/2021, 14:01
+%  Last edit: 17/08/2021, 15:03
 
 
 % Set defaults
