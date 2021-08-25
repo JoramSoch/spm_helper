@@ -28,31 +28,22 @@ or just using the function name, such that input arguments are specified via the
 - `spm_skull_strip`
 - `out = spm_calc_vols`.
 
-To get started, simply type `help spm_fct_name` into the command window, e.g.
+To get started, simply type `help spm_fct_name` into the MATLAB command window, e.g.
 
 ```matlab
->> help spm_plot_con_CI
+>> help spm_save_thr_SPM
   _
-  Plot Contrast with Confidence Intervals
-  FORMAT [cb, CI] = spm_plot_con_CI(SPM, con, xyz, alpha, CI_plot)
+  Save Thresholded Statistical Parametric Map
+  FORMAT spm_save_thr_SPM(SPM, con, FWE, p, k)
+      SPM   - a structure specifying an estimated GLM
+      con   - an integer indexing the contrast to be queried
+      FWE   - a logical indicating family-wise error correction
+      p     - a scalar, the significance level (e.g. p < 0.05)
+      k     - an integer, the extent threshold (e.g. k = 10)
+      fname - a string, the filename for the threshold SPM
   
-      SPM     - a structure specifying an estimated GLM
-      con     - an integer indexing the contrast to be used
-      xyz     - a 1 x 3 vector of MNI coordinates [mm]
-      alpha   - the significance level, CIs are (1-alpha)
-      CI_plot - logical indicating whether to plot CIs
-  
-      cb      - a 1 x q vector of contrast estimates
-      CI      - a 2 x q vector of confidence intervals
-                where q is the 2nd dim of the contrast matrix and
-                where 1st row is lower and 2nd row is upper end of CI
-  
-  FORMAT [cb, CI] = spm_plot_con_CI(SPM, con, xyz, alpha, CI_plot)
-  computes and displays contrast estimates and (1-alpha) confidence
-  intervals of a contrast indexed by con at selected coordinates xyz [1].
-  
-  References:
-  [1] Carlin J (2010). Extracting beta, standard error and confidence
-      intervals for a coordinate. URL: https://imaging.mrc-cbu.cam.ac.uk/
-      imaging/Extracting_beta,_standard_error_and_confidence_interval_for_a_coordinate
+  FORMAT spm_save_thr_SPM(SPM, con, FWE, p, k) automatically performs
+  statistical inference specified by multiple comparison correction (FWE),
+  significance level (p) and extent threshold (k) and saves the resulting
+  thresholded statistical parametric map (fname).
 ```
