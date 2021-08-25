@@ -1,7 +1,7 @@
 function spm_save_thr_SPM(SPM, con, FWE, p, k, fname)
 % _
 % Save Thresholded Statistical Parametric Map
-% FORMAT spm_save_thr_SPM(SPM, con, FWE, p, k)
+% FORMAT spm_save_thr_SPM(SPM, con, FWE, p, k, fname)
 %     SPM   - a structure specifying an estimated GLM
 %     con   - an integer indexing the contrast to be queried
 %     FWE   - a logical indicating family-wise error correction
