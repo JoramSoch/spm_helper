@@ -24,6 +24,8 @@ function bpm_edit_SPM_cons(BPM)
 % First edit: 19/07/2021, 14:11
 %  Last edit: 26/07/2021, 16:03
 
+% Edits by Jasmin Kizilirmak: 28/10/2021
+
 
 % Load SPM.mat file
 %-------------------------------------------------------------------------%
