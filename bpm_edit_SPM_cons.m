@@ -40,8 +40,13 @@ for i = 1:num_con
     con_img  = spm_read_vols(con_hdr);
     con_hdr.fname    = strcat(SPM.xCon(i).Vspm.fname(1:end-4),'.nii');
     spm_write_vol(con_hdr, con_img);
+    % SPM.xCon.Vspm - Name of SPM image
     SPM.xCon(i).Vspm = con_hdr;
-    SPM.xCon(i).c    = BPM.contrast{i};
+    % SPM.xCon.c - Contrast weights (column vector contrasts)
+    SPM.xCon(i).c    = BPM.contrast(i,:); % original: BPM.contrast{i};
+    % SPM.xX.X - Design matrix; BPM does not do design matrices
+    % SPM.xX.name - cellstr of parameter names corresponding to columns of design matrix
+    SPM.xX.name = BPM.titles;
 end;
 clear filename con_hdr con_img
 
