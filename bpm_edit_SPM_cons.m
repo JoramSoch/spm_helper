@@ -24,6 +24,8 @@ function bpm_edit_SPM_cons(BPM)
 % First edit: 19/07/2021, 14:11
 %  Last edit: 26/07/2021, 16:03
 
+% Edits by Jasmin Kizilirmak: 09/11/2021
+
 
 % Load SPM.mat file
 %-------------------------------------------------------------------------%
@@ -40,9 +42,18 @@ for i = 1:num_con
     con_img  = spm_read_vols(con_hdr);
     con_hdr.fname    = strcat(SPM.xCon(i).Vspm.fname(1:end-4),'.nii');
     spm_write_vol(con_hdr, con_img);
+    % SPM.xCon.Vspm - Name of SPM image
     SPM.xCon(i).Vspm = con_hdr;
-    SPM.xCon(i).c    = BPM.contrast{i};
-end;
+    % get correct plane info from 1st subject, overwrite pinfo in contrasts
+    SPM.xCon(i).Vspm.pinfo = SPM.xY.VY(1,1).pinfo;
+    % SPM.xCon.c - Contrast weights
+    if iscell(BPM.contrast) % for multiple regression
+        SPM.xCon(i).c = BPM.contrast{i};
+    else % for ANOVA and ANCOVA
+        SPM.xCon(i).c = BPM.contrast(i,:);
+    end
+    % SPM.xX.X - Design matrix; BPM does not include one in BPM.mat
+end
 clear filename con_hdr con_img
 
 % Save SPM.mat file
