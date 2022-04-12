@@ -1,7 +1,7 @@
 function [x, y, xr, yr, CI] = spm_plot_reg_CI(SPM, cov, xyz, alpha, reg_plot)
 % _
 % Plot Regression with Confidence Interval
-% FORMAT [x, y, xr, yr, CI] = spm_plot_cov_reg(SPM, cov, xyz, alpha, reg_plot)
+% FORMAT [x, y, xr, yr, CI] = spm_plot_reg_CI(SPM, cov, xyz, alpha, reg_plot)
 % 
 %     SPM      - a structure specifying an estimated GLM
 %     cov      - an integer indexing the covariate to be used
@@ -15,7 +15,7 @@ function [x, y, xr, yr, CI] = spm_plot_reg_CI(SPM, cov, xyz, alpha, reg_plot)
 %     yr       - a 100 x 1 vector of regression line y-values
 %     CI       - a 2 x 100 matrix of regression confidence bands
 % 
-% FORMAT [x, y, xr, yr, CI] = spm_plot_cov_reg(SPM, cov, xyz, alpha, reg_plot)
+% FORMAT [x, y, xr, yr, CI] = spm_plot_reg_CI(SPM, cov, xyz, alpha, reg_plot)
 % computes and displays regression line as well as (1-alpha) confidence
 % bands [1,2] for a linear relationship of measured responses with the
 % covariate indexed by cov at selected coordinates xyz.
