@@ -4,6 +4,9 @@
 
 <img src="https://vignette.wikia.nocookie.net/disney/images/2/25/Filament.PNG" alt="Little Helper" height=250>
 
+
+## List of functions
+
 In this repository, I collect some useful helper functions for [Statistical Parametric Mapping](https://www.fil.ion.ucl.ac.uk/spm/) (SPM):
 - `spm_calc_vols`: performs arbitrary mathematical operations on several volumes
 - `spm_corr_vols`: correlates a set of volumes, outputs correlations and p-values
@@ -16,7 +19,9 @@ In this repository, I collect some useful helper functions for [Statistical Para
 - `spm_gen_con_paths`: generates contrast paths to be used in second-level analyses
 - `spm_exec_mult_jobs`: executes multiple jobs created using the SPM batch editor
 - `spm_skull_strip`: skull-strips an anatomical image using the segmentation of SPM12
-- `bpm_edit_SPM_cons`: edits SPM contrast maps after [BPM analysis](https://www.nitrc.org/frs/?group_id=433&release_id=1909) has been performed
+
+
+## Getting started
 
 Most of these functions are written such that they can be called with all input arguments, e.g.
 
